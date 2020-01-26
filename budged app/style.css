@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+*::before,
+*::after,
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color:#4a9aef;
+  color: white;
+}
+
+label {
+  display: block;
+}
+
+.title {
+  font-size: 3rem;
+  text-shadow: 1px 1px 2px black;
+  text-align: center;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: .6fr 1fr;
+  grid-template-rows: minmax(200px, 270px) minmax(150px, 270px) 1fr;
+  grid-column-gap: 25px;
+  margin: 0 5vw;
+}
+
+.show-block {
+  flex-wrap: wrap;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.show-block #budget-value,
+.show-block #balance-value,
+.show-block #consumption-value {
+  font-size: 1.1rem;
+}
+
+.show-block__icon {
+  font-size: 2.65rem;
+}
+
+#budget-value::after,
+#balance-value::after,
+#consumption-value::after {
+  content: "₽";
+  padding-left: 3px;
+}
+
+.show-block {
+  display: flex;
+  justify-content: space-around;
+}
+
+.dollar-sign-green,
+.dollar-sign-red {
+  font-size: 3.5rem;
+  padding: 0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+
+/*Styling forms*/
+
+.income-form, 
+.consumption-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  border: 2px solid black;
+  margin: 0 0 10px 10px;
+  border-radius: 10px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.income-form {
+  grid-row: 1;
+  background-color: rgba(199, 229, 197, 0.5);
+}
+
+.consumption-form {
+  grid-row: 2;
+  background-color: rgba(226, 154, 154, 0.5);
+}
+
+.budget p,
+.income p,
+.consumption p {
+  margin-bottom: 15px;
+}
+
+.income-form label,
+.consumption-form label {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+#income-input {
+  font-size: 1rem;
+  border: 2px solid rgba(199, 229, 197, 0.7);
+  width: 100%;
+}
+
+#consumption-input-name,
+#consumption-input-value {
+  border: 2px solid rgba(226, 154, 154, 0.7);
+}
+
+/*Hiding arrows*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"] {
+  width: 100px;
+  border-radius: 2px;
+}
+
+input[type="text"] {
+  width: 100%;
+  border-radius: 2px;
+}
+
+.confirm-btn {
+  margin-top: 10px;
+  padding: 3px 5px;
+  color: white;
+  background-color: #4a9aef;
+  border: none;
+  border-radius: 3px;
+}
+
+.consumption-list__list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.consumption-list__title {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+}
+
+.consumption-list__list-item:last-child {
+  margin: 0;
+  margin-bottom: 50px;
+}
+
+/*Styling "edit interface" inside of each */
+
+.consumption-list__list-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid white;
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-edit, .btn-delete {
+  background-color: transparent;
+  border: none;
+  padding: 0 5px;
+  color: white;
+}
+
+.btn-edit:hover i,
+.btn-delete:hover i {
+  transition: all 1s;
+  transform: rotate(5deg);
+}
+
+.settings {
+  align-self: flex-start;
+}
+
+.consumption-list-item {
+  font-size: 1.1rem;
+  margin: 0 20px;
+}
+
+.consumption-list-item::after {
+  content: "₽";
+  padding-left: 2px;
+}
+
+.description {
+  line-height: 1.5;
+}
+
+
+@media screen and (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 150px 1fr;
+  }
+
+  .income-form,
+  .consumption-form {
+    margin: 10px;
+  }
+}

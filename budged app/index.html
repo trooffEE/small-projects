@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="node_modules/normalize.css/normalize.css">
+    <script src="https://kit.fontawesome.com/1b15d9fdcb.js" crossorigin="anonymous"></script>
+    <script src="main.js" defer></script>
+    <title>Budget App</title>
+</head>
+<body>
+  <h1 class="title">Budget App</h1>
+
+  <div class="app">
+    <form action="" class="income-form">
+      <p class="dollar-sign-green"><i class="fas fa-file-invoice-dollar"></i></p>
+
+      <div class="income-form__container">
+          <label for="income-input">Введите сумму для пополнения бюджета:</label>
+          <input type="number" id="income-input">
+      </div>
+
+      <button class="confirm-btn" id="confirm-btn-income" type="submit">Пополнить бюджет</button>
+    </form>
+
+    <form action="" class="consumption-form">
+      <p class="dollar-sign-red"><i class="fas fa-funnel-dollar"></i></p>
+
+      <div class="consumption-form__name">
+        <label for="consumption-input-name">Введите название расхода:</label>
+        <input type="text" id="consumption-input-name">
+      </div>
+
+      <div class="consumption-form__value">
+          <label for="consumption-input-value">Введите сумму расхода:</label>
+          <input type="number" id="consumption-input-value">
+      </div>
+
+      <button class="confirm-btn" id="confirm-btn-consumption" type="submit">Добавить статью расходов</button>
+    </form>
+
+    <div class="show-block">
+      <div class="budget">
+        <p>Бюджет</p>
+        <p class="show-block__icon"><i class="fas fa-file-invoice-dollar"></i></p>
+        <span id="budget-value">0</span>
+      </div>
+
+      <div class="income">
+        <p>Расходы</p>
+        <p class="show-block__icon"><i class="fas fa-funnel-dollar"></i></p>
+        <span id="consumption-value">0</span>
+      </div>
+
+      <div class="consumption">
+        <p>Баланс</p>
+        <p class="show-block__icon"><i class="fas fa-dollar-sign"></i></p>
+        <span id="balance-value">0</span>
+      </div>
+    </div>
+
+    <div class="consumption-list__container">
+      <h2 class="consumption-list__title">Список трат: </h2>
+      <ul class="consumption-list__list">
+
+        <li class="consumption-list__list-item">
+          <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, amet quia libero dolor nulla atque, accusamus, eos harum laboriosam ipsum fuga rerum! Iste asperiores aliquid dignissimos nihil eius voluptatibus repudiandae!</p>
+          <div class="settings">
+            <span class="consumption-list-item">500</span>
+            <button type="button" class="btn-edit"><i class="fas fa-edit"></i></button>
+            <button type="button" class="btn-delete"><i class="fas fa-times"></i></button>
+          </div>    
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
