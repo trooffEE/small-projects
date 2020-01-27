@@ -28,11 +28,40 @@ class UI {
 
     submitConsumptionForm() {
         const value = this.consumptionInputValue.value;
+        const title = this.consumptionInputName.value;
         if (value > 0 && value != "") {
             this.consumptionValue.textContent = +this.consumptionValue.textContent + (+value);
+            this.consumptionInputName.value = "";
             this.consumptionInputValue.value = "";
+            
+            let amount = parseInt(value);
+            const expense = {
+                id: this.itemID,
+                title: title,
+                amount: amount
+            }
+            
+            this.itemID++;
+            this.itemList.push(expense);
+            this.addExpense(expense);
             this.showBallance();
-        }
+
+        } else console.log("Somethnig went wrong!");
+    }
+
+    addExpense(expense) {
+        const list = this.consumptionList;
+        const li = document.createElement('li');
+        li.classList.add("consumption-list__list-item");
+        li.innerHTML = `
+        <p class="description">${expense.title}</p>
+          <div class="settings">
+            <span class="consumption-list-item">${expense.amount}</span>
+            <a href="#" class="btn-edit" data-id="${expense.id}"><i class="fas fa-edit"></i></a>
+            <a href="#" class="btn-delete" data-id="${expense.id}"><i class="fas fa-times"></i></a>
+          </div>   
+        `;
+        list.appendChild(li);
     }
 
     showBallance() {
@@ -46,7 +75,6 @@ class UI {
         return +budgetValue - (+consumptionValue);
     }
 
-    
 }
 
 function eventListeners() {
