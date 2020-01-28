@@ -20,7 +20,7 @@ class UI {
     submitBudgedForm() {
         const value = this.incomeInput.value;
         if (value > 0) {
-            this.budgetValue.textContent = +this.budgetValue.textContent + (+value);
+            this.showCurrentIncome();
             this.incomeInput.value = "";
             this.showBallance();
         }
@@ -30,7 +30,6 @@ class UI {
         const value = this.consumptionInputValue.value;
         const title = this.consumptionInputName.value;
         if (value > 0 && value != "") {
-            this.consumptionValue.textContent = +this.consumptionValue.textContent + (+value);
             this.consumptionInputName.value = "";
             this.consumptionInputValue.value = "";
             
@@ -39,14 +38,14 @@ class UI {
                 id: this.itemID,
                 title: title,
                 amount: amount
-            }
+            };
             
             this.itemID++;
             this.itemList.push(expense);
             this.addExpense(expense);
             this.showBallance();
 
-        } else console.log("Somethnig went wrong!");
+        } else console.log("Something went wrong!");
     }
 
     addExpense(expense) {
@@ -62,19 +61,44 @@ class UI {
           </div>   
         `;
         list.appendChild(li);
+        this.showCurrentConsumption(list.children);
     }
 
     showBallance() {
-        this.balanceValue.textContent = this.calcCurrentBalance();
-    }
-
-    calcCurrentBalance() {
         const budgetValue = this.budgetValue.textContent;
         const consumptionValue = this.consumptionValue.textContent;
-        
-        return +budgetValue - (+consumptionValue);
+
+        this.balanceValue.textContent = +budgetValue - (+consumptionValue);
     }
 
+    showCurrentConsumption(list) {
+        let __sum__ = 0;
+        Array.from(list).forEach(item => {
+            const itemAmount = parseInt(item.querySelector(".consumption-list-item").textContent);
+            __sum__ += itemAmount;
+        });
+
+        this.consumptionValue.textContent = __sum__;
+    }
+
+    showCurrentIncome() {
+        const value = this.incomeInput.value;
+        this.budgetValue.textContent = +this.budgetValue.textContent + (+value);
+    }
+
+    deleteConsumption(element) {
+        let id = parseInt(element.dataset.id);
+        let parent = element.parentElement.parentElement;
+        console.log(this.itemList);
+        //remove from dom
+    }
+
+    editConsumption(element) { 
+        let id = parseInt(element.dataset.id);
+        let parent = element.parentElement.parentElement;
+        //remove from dom
+        this.consumptionList.removeChild(parent);
+    }
 }
 
 function eventListeners() {
@@ -95,8 +119,12 @@ function eventListeners() {
         ui.submitConsumptionForm();
     });
     //for list container
-    consumptionsList.addEventListener("click", () => {
-
+    consumptionsList.addEventListener("click", e => {
+        if (e.target.parentElement.classList.contains('btn-edit')) {
+            ui.editConsumption(e.target.parentElement);
+        } else if (e.target.parentElement.classList.contains('btn-delete')) {
+            ui.deleteConsumption(e.target.parentElement);
+        }
     });
 }
 
