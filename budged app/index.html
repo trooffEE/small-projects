@@ -15,7 +15,7 @@
 
   <div class="app">
     <form action="" class="income-form">
-      <p class="dollar-sign-green"><i class="fas fa-file-invoice-dollar"></i></p>
+      <p class="main-icon__container"><i class="fas fa-file-invoice-dollar"></i></p>
 
       <div class="income-form__container">
           <label for="income-input">Введите сумму для пополнения бюджета:</label>
@@ -26,16 +26,16 @@
     </form>
 
     <form action="" class="consumption-form">
-      <p class="dollar-sign-red"><i class="fas fa-funnel-dollar"></i></p>
+      <p class="main-icon__container"><i class="fas fa-funnel-dollar"></i></p>
 
       <div class="consumption-form__name">
         <label for="consumption-input-name">Введите название расхода:</label>
-        <input type="text" id="consumption-input-name">
+        <input type="text" id="consumption-input-name" class="consumption-inputs">
       </div>
 
       <div class="consumption-form__value">
           <label for="consumption-input-value">Введите сумму расхода:</label>
-          <input type="number" id="consumption-input-value">
+          <input type="number" id="consumption-input-value" class="consumption-inputs">
       </div>
 
       <button class="confirm-btn" id="confirm-btn-consumption" type="submit">Добавить статью расходов</button>
@@ -45,19 +45,19 @@
       <div class="budget">
         <p>Бюджет</p>
         <p class="show-block__icon"><i class="fas fa-file-invoice-dollar"></i></p>
-        <span id="budget-value">0</span>
+        <span class="budget-info" id="budget-value">0</span>
       </div>
 
       <div class="income">
         <p>Расходы</p>
         <p class="show-block__icon"><i class="fas fa-funnel-dollar"></i></p>
-        <span id="consumption-value">0</span>
+        <span class="budget-info" id="consumption-value">0</span>
       </div>
 
       <div class="consumption">
         <p>Баланс</p>
         <p class="show-block__icon"><i class="fas fa-dollar-sign"></i></p>
-        <span id="balance-value">0</span>
+        <span class="budget-info" id="balance-value">0</span>
       </div>
     </div>
 
