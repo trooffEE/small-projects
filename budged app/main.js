@@ -89,8 +89,13 @@ class UI {
     deleteConsumption(element) {
         let id = parseInt(element.dataset.id);
         let parent = element.parentElement.parentElement;
-        console.log(this.itemList);
         //remove from dom
+        this.consumptionList.removeChild(parent);
+        this.itemList.filter(item => {
+            return item.id !== id;
+        });
+        this.showCurrentConsumption(this.consumptionList.children);
+        this.showBallance();
     }
 
     editConsumption(element) { 
@@ -98,6 +103,13 @@ class UI {
         let parent = element.parentElement.parentElement;
         //remove from dom
         this.consumptionList.removeChild(parent);
+        let expense = this.itemList.filter(item => {
+            return item.id === id;
+        });
+        // changing expense name
+        this.consumptionInputName.value = expense[0].title;
+        // changing expense amount
+        this.consumptionInputValue.value = expense[0].amount;
     }
 }
 
