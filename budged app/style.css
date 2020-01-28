@@ -42,19 +42,17 @@ label {
   text-align: center;
 }
 
-.show-block #budget-value,
-.show-block #balance-value,
-.show-block #consumption-value {
-  font-size: 1.1rem;
-}
 
 .show-block__icon {
   font-size: 2.65rem;
 }
 
-#budget-value::after,
-#balance-value::after,
-#consumption-value::after {
+/* Styling  */
+.budget-info {
+  font-size: 1.1rem;
+}
+
+.budget-info::after {
   content: "₽";
   padding-left: 3px;
 }
@@ -64,8 +62,7 @@ label {
   justify-content: space-around;
 }
 
-.dollar-sign-green,
-.dollar-sign-red {
+.main-icon__container {
   font-size: 3.5rem;
   padding: 0;
   margin: 0;
@@ -73,7 +70,7 @@ label {
 }
 
 
-/*Styling forms*/
+/* Styling forms */
 
 .income-form, 
 .consumption-form {
@@ -111,18 +108,17 @@ label {
   line-height: 1.5;
 }
 
+.consumption-inputs {
+  border: 2px solid rgba(226, 154, 154, 0.7);
+}
+
 #income-input {
   font-size: 1rem;
   border: 2px solid rgba(199, 229, 197, 0.7);
   width: 100%;
 }
 
-#consumption-input-name,
-#consumption-input-value {
-  border: 2px solid rgba(226, 154, 154, 0.7);
-}
-
-/*Hiding arrows*/
+/* Hiding arrows */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -135,14 +131,19 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+/* Styling inputs */
+input[type="number"],
+input[type="text"] {
+  border-radius: 2px;
+  padding: 3px 5px;
+}
+
 input[type="number"] {
   width: 100px;
-  border-radius: 2px;
 }
 
 input[type="text"] {
   width: 100%;
-  border-radius: 2px;
 }
 
 .confirm-btn {
@@ -172,7 +173,7 @@ input[type="text"] {
   margin-bottom: 50px;
 }
 
-/*Styling "edit interface" inside of each */
+/* Styling "edit interface" inside of each item */
 
 .consumption-list__list-item {
   display: flex;
