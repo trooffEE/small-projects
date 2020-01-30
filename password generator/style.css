@@ -1,5 +1,5 @@
 /* Import font */
-@import url('https://fonts.googleapis.com/css?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono&display=swap');
 
 *,
 *::before,
@@ -14,18 +14,84 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #494949;
+    background: linear-gradient(45deg, #dbc492, #827557);
 }
 
 .app {
-    background-color: #1993b5;
-    width: 500px;
+    display: flex;
+    background-color: #827557;
+    flex-direction: column;
+    width: 700px;
     height: 500px;
     color: white;
     text-align: center;
-    font-family: "Bangers", sans-serif;
+    font-family: "Roboto", sans-serif;
+    border-radius: 4px;
+}
+
+#password-field {
+    align-self: center;
+    width: 70%;
+    padding: 15px 9px;
+    margin-top: 35px;
+    font-size: 1.05rem;
+    font-family: "Roboto", sans-serif;
+    border: 2px solid #473f2e;
+    border-radius: 3px;
+}
+
+.set-up {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 35px 0;
+    row-gap: 1rem;
+    font-size: 1.1rem;
 }
 
 .title {
-    letter-spacing: 1.5px;
+    font-size: 2.5rem;
+    margin-top: 30px;
+}
+
+.btn {
+    background-color: transparent;
+    border: 2px solid #473f2e;
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    padding: 3px 0;
+    align-self: center;
+    width: 300px;
+    border-radius: 20px;
+    grid-column: span 2;
+    margin: 0 auto;
+    margin-top: 35px;
+}
+
+.btn:hover, 
+.btn:focus {
+    background-color: rgba(71, 63, 46, 0.4);
+}
+
+#inputRangeNumbers {
+    margin-left: 10px;
+    width: 20px;
+}
+
+/*Removing */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.character-amount-container {
+    display: flex;
+    align-items: center;
 }
